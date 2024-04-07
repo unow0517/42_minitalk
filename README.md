@@ -1,5 +1,5 @@
 # minitalk
-project to learn how server and client communicate
+project to learn how server and client communicate by making small client and server programs and exchanging information between those.
 <br/><br/>
 ## Key Concept
 ### Signal
