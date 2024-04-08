@@ -85,7 +85,7 @@ sigaction struct:
 Unicode use 21-bits system, which means it can store 2<sup>21</sup> different letters, emojis. But actual Range is 0x0 ~ 0x10FFFF(1,114,111 in dec), since it seems to be a big  number enough to store symbols of our planet.
 </br>Unicode has many encoding system, and UTF-8 is the most prevailed encoding system. Size from UTF-8 encoding varies from 1byte to 4byte. <br/>
 I will take a Korean letter `ㄱ` as an example. If I convert `ㄱ` to binary, the result is `11100011 10000100 10110001`([converter](https://onlinetools.com/unicode/convert-unicode-to-binary)). The very first `1110` means that the letter `ㄱ` is 3 bytes. and from second piece we should write `10` in front of following bits.
-So the `ㄱ` is saved in unicode  `(1110)0011 (10)000100 (1011)0001` which menas `ㄱ` is stored in  `00000 0011 000100 110001` (which is 0x3131). So when you have to send signal `11100011 10000100 10110001(227 132 177 in dec.)` server will print `ㄱ`.
+So the `ㄱ` is saved in unicode  `(1110)0011 (10)000100 (1011)0001` which menas `ㄱ` is stored in  `0 0000 0011 0001 0011 0001` (which is 0x3131). So when you send the signal `11100011 10000100 10110001(227 132 177 in dec.)` server will print `ㄱ`.
 
 
 ## Key Function
