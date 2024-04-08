@@ -83,10 +83,17 @@ sigaction struct:
 ### Unicode 
 **Unicode** is an international encoding standard for use with different languages and scripts, by which each letter, digit, or symbol is assigned a unique numeric value that applies across different platforms and programs. 
 Unicode use 21-bits system, which means it can store 2<sup>21</sup> different letters, emojis. But actual Range is 0x0 ~ 0x10FFFF(1,114,111 in dec), since it seems to be a big  number enough to store symbols of our planet.
-</br>Unicode has many encoding system, and UTF-8 is the most prevailed encoding system. Size from UTF-8 encoding varies from 1byte to 4byte. <br/>
+</br>Unicode has many encoding system, and UTF-8 is the most prevailed encoding system. Size from UTF-8 encoding varies from 1byte to 4byte. Below is the example of UTF-8 Converting System.<br/>
 I will take a Korean letter `ㄱ` as an example. If I convert `ㄱ` to binary, the result is `11100011 10000100 10110001`([converter](https://onlinetools.com/unicode/convert-unicode-to-binary)). The very first `1110` means that the letter `ㄱ` is 3 bytes. and from second piece we should write `10` in front of following bits.
 So the `ㄱ` is saved in unicode  `(1110)0011 (10)000100 (1011)0001` which menas `ㄱ` is stored in  `0 0000 0011 0001 0011 0001` (which is 0x3131). So when you send the signal `11100011 10000100 10110001(227 132 177 in dec.)` server will print `ㄱ`.
+<br/>
 
+Below is how to read the starting byte(the most left byte)
+
+0xxxxxxx : if the byte starts with 0, the byte refers to ASCII value.<br/>
+110xxxxx 10xxxxxx :  read till second byte and convert to a symbol.<br/>
+1110xxxx 10xxxxxx 10xxxxxx : read till third byte and convert to a symbol.<br/>
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx :  read till fourth byte and convert to a symbol.<br/>
 
 ## Key Function
 ```c
