@@ -39,7 +39,6 @@ Each process belongs to a group which is identified by a positive integer, the P
 
 ### Kill
 To send signals to the terminal, `kill` can be used. `kill -l` shows all the possible signals.
-`int kill
 <br/><br/>
 
 ### Sigaction
