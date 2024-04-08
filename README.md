@@ -2,6 +2,11 @@
 project to learn how server and client communicate by making small client and server programs and exchanging information between those.
 <br/><br/>
 ## Key Concept
+### Sending Information in binary
+To send information from client to server, information should be converted into bits and `SIGUSR1`(for 0) and `SIGUSR2`(for 1) signals will be sent.<br/>
+1. I want to send `A`(ascii value 65)
+2. 65 = 1000001<sub>2</sub>, and `SIGUSR2` `SIGUSR1` `SIGUSR1` `SIGUSR1` `SIGUSR1` `SIGUSR1` `SIGUSR2` will be sent accordingly from client to server, and server prints `A` out.
+
 ### Signal
 A **Signal** is a standardized notification message used in Unix and POSIX-compliant operating systems.
 
