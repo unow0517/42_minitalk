@@ -6,12 +6,9 @@
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:43:11 by yowoo             #+#    #+#             */
-/*   Updated: 2024/03/11 11:56:05 by yowoo            ###   ########.fr       */
+/*   Updated: 2024/04/08 13:10:34 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
 #include <signal.h>
-#include <stdlib.h>
 #include "../libft/libft.h"
