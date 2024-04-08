@@ -6,23 +6,19 @@
 #    By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/10 01:01:33 by yowoo             #+#    #+#              #
-#    Updated: 2024/03/11 12:01:05 by yowoo            ###   ########.fr        #
+#    Updated: 2024/04/08 13:02:46 by yowoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minitalk
 
 SERVER_C = server.c
-SERVER_OBJS = $(SERVER_C:.c=.o)
 
 CLIENT_C = client.c
-CLIENT_OBJS = $(CLIENT_C:.c=.o)
 
-LIBFT_SRCS = $(wildcard  libft/*.c)
+SERVER_EXE = server
 
-SERVER_EXE = server.o
-
-CLIENT_EXE = client.o
+CLIENT_EXE = client
 
 CC := cc
 
@@ -38,11 +34,11 @@ ${NAME}: libft server client
 libft:
 	cd libft && make
 	
-server: $(SERVER_OBJS)
-	@${CC} ${CFLAGS} ${INCLUDE} ${SERVER_OBJS} $(SERVER_FILE) ./libft/libft.a -o $(SERVER_EXE)
+server: $(SERVER_C)
+	@${CC} ${CFLAGS} ${INCLUDE} $(SERVER_C) ./libft/libft.a -o $(SERVER_EXE)
 
-client: $(CLIENT_OBJS)
-	@${CC} ${CFLAGS} ${INCLUDE} ${CLIENT_OBJS} $(CLIENT_FILE) ./libft/libft.a -o $(CLIENT_EXE)
+client: $(CLIENT_C)
+	@${CC} ${CFLAGS} ${INCLUDE} $(CLIENT_C) ./libft/libft.a -o $(CLIENT_EXE)
 
 clean:
 	@cd libft && make clean
